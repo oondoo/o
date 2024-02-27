@@ -1,4 +1,4 @@
 //profile-title: base64:QmUgSGFwcHk=
 //profile-update-interval: 6
 //subscription-userinfo: upload=0; download=0; total=10737418240000000; expire=0
-warp://162.159.1195.161:8319/?ifp=5-10;warp://162.159.192.164:2506/?ifp=5-10
+warp://162.159.1195.161:8319/?ifp=5-10,warp://162.159.192.164:2506/?ifp=5-10
