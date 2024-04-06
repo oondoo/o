@@ -15,3 +15,4 @@ ss://YWVzLTI1Ni1nY206Rm9PaUdsa0FBOXlQRUdQ@38.75.136.108:7306#Channel%20id%3A%20%
 ss://YWVzLTEyOC1nY206WWMyQ3RySXo4TA==@204.93.164.95:16899#Channel%20id%3A%20%40ShadowProxy66%20%F0%9F%87%BA%F0%9F%87%B8
 vless://16747acc-95c8-44ba-9b66-3d8a0c035347@185.247.184.115:2096?mode=gun&security=reality&encryption=none&authority=&pbk=c3R5_lORnQd1X3A2E0ulHJn396G2X_ZYIs66ldEVQWI&fp=firefox&type=grpc&serviceName=&sni=dash.cloudflare.com&sid=28f58957#Channel%20id%3A%20%40ShadowProxy66%20%F0%9F%87%AE%F0%9F%87%B9
 vless://9cd6e660-fa72-415d-a60d-64aa16574ab0@172.66.213.38:8080?path=%2F&security=none&encryption=none&host=EnRheo.BALe.Bio&type=ws#%40server_housing03-All
+warp://188.114.98.224:908/?ifp=5-10&40-100&10-20
