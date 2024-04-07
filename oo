@@ -3,8 +3,8 @@
 //subscription-userinfo: upload=0; download=0; total=10737418240000000; expire=0
 //support-url: https://github.com/hiddify/hiddify-next/releases
 //profile-web-page-url: https://hiddify.com
-warp://162.159.195.246:955/?ifp=5-10&ifps=40-100&ifpd=10-20#main
-warp://188.114.97.14:7559/?ifp=5-10&ifps=40-100&ifpd=10-20#main
-warp://162.159.192.76:2506/?ifp=5-10&ifps=40-100&ifpd=10-20#main
-warp://188.114.96.159:880/?ifp=5-10&ifps=40-100&ifpd=10-20#main
-warp://188.114.98.224:908/?ifp=5-10&ifps=40-100&ifpd=10-20#main
+warp://162.159.195.246:955/?ifp=5-10&ifps=40-100&ifpd=10-20
+warp://188.114.97.14:7559/?ifp=5-10&ifps=40-100&ifpd=10-20
+warp://162.159.192.76:2506/?ifp=5-10&ifps=40-100&ifpd=10-20
+warp://188.114.96.159:880/?ifp=5-10&ifps=40-100&ifpd=10-20
+warp://188.114.98.224:908/?ifp=5-10&ifps=40-100&ifpd=10-20
