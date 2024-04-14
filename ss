@@ -1,18 +1,212 @@
 //profile-title: base64:Q2FsbSBEb3duIPCfkpnwn4yz4piY77iP8J+SmQ==
 //profile-update-interval: 7
 //subscription-userinfo: upload=0; download=0; total=10737418240000000; expire=0
-ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTpVWG9HV3lqd0RWWklsMVdNdUh0eFNp@139.28.220.18:5700#Channel%20id%3A%20%40ShadowProxy66%20%F0%9F%87%AB%F0%9F%87%AE
-ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNToxZjhqZE9JS2t4UldNVWVPZlhQZW84@109.107.172.30:28190#Channel%20id%3A%20%40ShadowProxy66%20
-ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTp1MTdUM0J2cFlhYWl1VzJj@series-a2-mec.samanehha.co:443#Channel%20id%3A%20%40ShadowProxy66%20%F0%9F%87%AC%F0%9F%87%A7
-ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTptcHMzRndtRGpMcldhT1Zn@series-a2.samanehha.co:443#Channel%20id%3A%20%40ShadowProxy66%20%F0%9F%87%A6%F0%9F%87%AA
-ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTpXNzRYRkFMTEx1dzZtNUlB@series-a1.samanehha.co:443#Channel%20id%3A%20%40ShadowProxy66%20%F0%9F%87%A6%F0%9F%87%AA
-ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTpYeU01eDZwNENKOGRsYjB5OW1WSEJL@188.94.155.82:35152#%F0%9F%87%B0%F0%9F%87%BF82%40shadowsockskeys
-vless://cc771b27-27ad-4bf3-bc42-f42cd673edbe@zula.ir:443?path=%2F%3Fed%3D2048&security=tls&encryption=none&alpn=http/1.1&host=ab-841-vpn.pages.dev&fp=chrome&type=ws&sni=ab-841-vpn.pages.dev#%E2%96%A0+AB-841+%7C+BugFreeNet
-vless://cc771b27-27ad-4bf3-bc42-f42cd673edbe@zula.ir:443?path=%2F%3Fed%3D2048&security=tls&encryption=none&alpn=http/1.1&host=telegram-chanel-ab-841-vpn.pages.dev&fp=chrome&type=ws&sni=telegram-chanel-ab-841-vpn.pages.dev#%E2%96%A0+%40AB-841%2B%40VIP-FRAGMENT-V2RAY+%7C+Unlimited+time+and+volume
-ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTpYeU01eDZwNENKOGRsYjB5OW1WSEJL@188.94.155.82:35152#👉🆔 @FORWARDV2RAY
-ss://YWVzLTI1Ni1nY206Rm9PaUdsa0FBOXlQRUdQ@38.75.136.108:7306#Channel%20id%3A%20%40ShadowProxy66%20%F0%9F%87%BA%F0%9F%87%B8
-ss://YWVzLTEyOC1nY206WWMyQ3RySXo4TA==@204.93.164.95:16899#Channel%20id%3A%20%40ShadowProxy66%20%F0%9F%87%BA%F0%9F%87%B8
-vless://16747acc-95c8-44ba-9b66-3d8a0c035347@185.247.184.115:2096?mode=gun&security=reality&encryption=none&authority=&pbk=c3R5_lORnQd1X3A2E0ulHJn396G2X_ZYIs66ldEVQWI&fp=firefox&type=grpc&serviceName=&sni=dash.cloudflare.com&sid=28f58957#Channel%20id%3A%20%40ShadowProxy66%20%F0%9F%87%AE%F0%9F%87%B9
 vless://9cd6e660-fa72-415d-a60d-64aa16574ab0@172.66.213.38:8080?path=%2F&security=none&encryption=none&host=EnRheo.BALe.Bio&type=ws#%40server_housing03-All
-vmess://eyJhZGQiOiIxODguMTE0Ljk3LjMiLCJhaWQiOiIwIiwiYWxwbiI6IiIsImZwIjoiIiwiaG9zdCI6ImFmcmhtczE2di5iZXN0eHJheS5idXp6IiwiaWQiOiJmNTg0ZGUxNS0yMDM0LTQxNzAtYTcyMy1mNDhjMmJhZTVlMGYiLCJuZXQiOiJ3cyIsInBhdGgiOiJcL2xpbmt3cyIsInBvcnQiOiI0NDMiLCJwcyI6Ilx1MDYzMVx1MDYyN1x1MDZjY1x1MDZhZlx1MDYyN1x1MDY0NiB8IFZNRVNTIHwgQE9wZW5TU1RQVnBuIHwgVVNcdWQ4M2NcdWRkZmFcdWQ4M2NcdWRkZjggfCAwXHVmZTBmXHUyMGUzNlx1ZmUwZlx1MjBlMyIsInNjeSI6ImF1dG8iLCJzbmkiOiJhZnJobXMxNnYuYmVzdHhyYXkuYnV6eiIsInRscyI6InRscyIsInR5cGUiOiIiLCJ2IjoiMiJ9
-vless://d674009a-4a87-4180-a8fe-9a54f66bd7c9@198.41.209.216:443?type=ws&encryption=none&host=vpn.restia.love&path=/?ed=2048&security=tls&sni=vpn.restia.love#رایگان |
+d2FycDovLzE4OC4xMTQuOTguMjI0Ojk4Ny8/aWZwPTUtMTAmJmRldG91cj1oeTI6Ly92cG54d0AyMTcuMTk2LjEwNi43MDozMzAwMy8/aW5zZWN1cmU9MSZzbmk9d3d3LnNwZWVkdGVzdC5uZXQmb2Jmcz1zYWxhbWFuZGVyJm9iZnMtcGFzc3dvcmQ9dnBueHcjVlBOLVhXLkhZMvCfh7jwn4eq
+d2FycDovLzE4OC4xMTQuOTguMjI0Ojk4Ny8/aWZwPTUtMTAmJmRldG91cj10dWljOi8vN2U0NDk2MWYtYzFjNy00ODljLTk2NTQtNThmN2Q0YWY2NzkxOnh3dnBub0AyMTcuMTk2LjEwNi43MDoyOTAxNC8/Y29uZ2VzdGlvbl9jb250cm9sPWJiciZ1ZHBfcmVsYXlfbW9kZT1uYXRpdmUmYWxwbj1oMyUyQ3NwZHklMkYzLjEmYWxsb3dfaW5zZWN1cmU9MSNWUE4tWFcuVFVJQ/Cfh7jwn4eq
+{
+  "log": {
+    "level": "warn",
+    "output": "box.log",
+    "timestamp": true
+  },
+  "dns": {
+    "servers": [
+      {
+        "tag": "dns-remote",
+        "address": "udp://1.1.1.1",
+        "address_resolver": "dns-direct"
+      },
+      {
+        "tag": "dns-trick-direct",
+        "address": "https://sky.rethinkdns.com/",
+        "detour": "direct-fragment"
+      },
+      {
+        "tag": "dns-direct",
+        "address": "1.1.1.1",
+        "address_resolver": "dns-local",
+        "detour": "direct"
+      },
+      {
+        "tag": "dns-local",
+        "address": "local",
+        "detour": "direct"
+      },
+      {
+        "tag": "dns-block",
+        "address": "rcode://success"
+      }
+    ],
+    "rules": [
+      {
+        "domain": "cp.cloudflare.com",
+        "server": "dns-remote",
+        "rewrite_ttl": 3000
+      }
+    ],
+    "final": "dns-remote",
+    "static_ips": {
+      "sky.rethinkdns.com": [
+        "188.114.96.0",
+        "188.114.97.0",
+        "2a06:98c1:3121::",
+        "2a06:98c1:3120::",
+        "104.18.203.232",
+        "104.18.202.232",
+        "172.64.194.29",
+        "172.64.195.29",
+        "2606:4700:e6::ac40:c31d",
+        "2606:4700:e6::ac40:c21d"
+      ]
+    },
+    "independent_cache": true
+  },
+  "inbounds": [
+    {
+      "type": "tun",
+      "tag": "tun-in",
+      "mtu": 9000,
+      "inet4_address": "172.19.0.1/28",
+      "auto_route": true,
+      "strict_route": true,
+      "endpoint_independent_nat": true,
+      "stack": "mixed",
+      "sniff": true,
+      "sniff_override_destination": true
+    },
+    {
+      "type": "mixed",
+      "tag": "mixed-in",
+      "listen": "127.0.0.1",
+      "listen_port": 2334,
+      "sniff": true,
+      "sniff_override_destination": true
+    },
+    {
+      "type": "direct",
+      "tag": "dns-in",
+      "listen": "127.0.0.1",
+      "listen_port": 6450,
+      "override_address": "1.1.1.1",
+      "override_port": 53
+    }
+  ],
+  "outbounds": [
+    {
+      "type": "selector",
+      "tag": "select",
+      "outbounds": [
+        "auto",
+        "WARP § 0",
+        "🇫🇷VPNXW § 1"
+      ],
+      "default": "auto"
+    },
+    {
+      "type": "urltest",
+      "tag": "auto",
+      "outbounds": [
+        "WARP § 0",
+        "🇫🇷VPNXW § 1"
+      ],
+      "url": "http://cp.cloudflare.com/",
+      "interval": "10m0s",
+      "idle_timeout": "1h40m0s"
+    },
+    {
+      "type": "wireguard",
+      "tag": "WARP § 0",
+      "local_address": [
+        "172.16.0.2/24",
+        "2606:4700:110:816c:cb4f:1429:550:6b87/128"
+      ],
+      "private_key": "UDmB4qMLQX/NSPKEg6UpMOpcOVZFrMhx5LkOAA/RjGk=",
+      "server": "188.114.98.224",
+      "server_port": 987,
+      "peer_public_key": "bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=",
+      "reserved": "AAAA",
+      "mtu": 1280,
+      "fake_packets": "5-10",
+      "fake_packets_size": "40-100",
+      "fake_packets_delay": "20-250"
+    },
+    {
+      "type": "hysteria2",
+      "tag": "🇫🇷VPNXW § 1",
+      "detour": "WARP § 0",
+      "server": "51.159.77.153",
+      "server_port": 33390,
+      "password": "dongtaiwang.com",
+      "tls": {
+        "enabled": true,
+        "server_name": "www.speedtest.net",
+        "insecure": true
+      }
+    },
+    {
+      "type": "dns",
+      "tag": "dns-out"
+    },
+    {
+      "type": "direct",
+      "tag": "direct"
+    },
+    {
+      "type": "direct",
+      "tag": "direct-fragment",
+      "tls_fragment": {
+        "enabled": true,
+        "size": "1-500",
+        "sleep": "0-500"
+      }
+    },
+    {
+      "type": "direct",
+      "tag": "bypass"
+    },
+    {
+      "type": "block",
+      "tag": "block"
+    }
+  ],
+  "route": {
+    "geoip": {
+      "path": "geo-assets/sagernet-sing-geoip-geoip.db"
+    },
+    "geosite": {
+      "path": "geo-assets/sagernet-sing-geosite-geosite.db"
+    },
+    "rules": [
+      {
+        "inbound": "dns-in",
+        "outbound": "dns-out"
+      },
+      {
+        "port": 53,
+        "outbound": "dns-out"
+      },
+      {
+        "clash_mode": "Direct",
+        "outbound": "direct"
+      },
+      {
+        "clash_mode": "Global",
+        "outbound": "select"
+      }
+    ],
+    "final": "select",
+    "auto_detect_interface": true,
+    "override_android_vpn": true
+  },
+  "experimental": {
+    "cache_file": {
+      "enabled": true,
+      "path": "clash.db"
+    },
+    "clash_api": {
+      "external_controller": "127.0.0.1:6756",
+      "secret": "1y0yiWSb9pCjdo1U"
+    }
+  }
+}
