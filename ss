@@ -1,7 +1,6 @@
 //profile-title: base64:Q2FsbSBEb3duIPCfkpnwn4yz4piY77iP8J+SmQ==
 //profile-update-interval: 7
 //subscription-userinfo: upload=0; download=0; total=10737418240000000; expire=0
-
 {
   "log": {
     "disabled": true,
@@ -17,7 +16,7 @@
       },
       {
         "tag": "Best Latency-dns",
-        "address": "https://1.1.1.1/dns-query",
+        "address": "https://8.8.8.8/dns-query",
         "address_resolver": "direct-dns",
         "detour": "Best Latency"
       },
@@ -82,23 +81,57 @@
       "tag": "Internet",
       "outbounds": [
         "Best Latency",
+        "🇳🇱 𝐈𝐑𝐂𝐏",
         "🇫🇮 𝐀𝐳𝐚𝐝𝐢 𝟏",
         "🇫🇮 𝐀𝐳𝐚𝐝𝐢 𝟐",
-        "🇸🇪 𝐀𝐳𝐚𝐝𝐢 3"
+        "🇸🇪 𝐀𝐳𝐚𝐝𝐢 𝟑",
+        "🇦🇺 𝐀𝐳𝐚𝐝𝐢 𝟒",
+        "🇦🇺 𝐀𝐳𝐚𝐝𝐢 𝟓"
       ]
     },
     {
       "type": "urltest",
       "tag": "Best Latency",
       "outbounds": [
+        "🇳🇱 𝐈𝐑𝐂𝐏",
         "🇫🇮 𝐀𝐳𝐚𝐝𝐢 𝟏",
         "🇫🇮 𝐀𝐳𝐚𝐝𝐢 𝟐",
-        "🇸🇪 𝐀𝐳𝐚𝐝𝐢 3"
+        "🇸🇪 𝐀𝐳𝐚𝐝𝐢 𝟑",
+        "🇦🇺 𝐀𝐳𝐚𝐝𝐢 𝟒",
+        "🇦🇺 𝐀𝐳𝐚𝐝𝐢 𝟓"
       ],
       "url": "http://www.google.com/generate_204",
       "interval": "10m0s",
       "tolerance": 50,
       "idle_timeout": "30m0s"
+    },
+    {
+      "type": "hysteria2",
+      "tag": "🇳🇱 𝐈𝐑𝐂𝐏",
+      "server": "193.38.54.48",
+      "server_port": 443,
+      "obfs": {
+        "type": "salamander",
+        "password": "@ln2ray-5bdf790f-0af2-4481-a624-41b66e7e3489"
+      },
+      "password": "@ln2ray-5bdf790f-0af2-4481-a624-41b66e7e3489",
+      "tls": {
+        "enabled": true,
+        "server_name": "let-him-cook.ircp.online",
+        "alpn": "h3",
+        "min_version": "1.3",
+        "max_version": "1.3",
+        "ech": {
+          "enabled": true,
+          "pq_signature_schemes_enabled": true,
+          "config": [
+            "-----BEGIN ECH CONFIGS-----",
+            "AFf+DQBTAAAgACCc2kqEYGusiYc5fj1smMpQJYQLckpS1bgOaCDLvoiofgAIAAEA",
+            "AQABAAMAIFstLXBxLXNpZ25hdHVyZS1zY2hlbWVzLWVuYWJsZWRdAAA=",
+            "-----END ECH CONFIGS-----"
+          ]
+        }
+      }
     },
     {
       "type": "hysteria2",
@@ -158,7 +191,7 @@
     },
     {
       "type": "hysteria2",
-      "tag": "🇸🇪 𝐀𝐳𝐚𝐝𝐢 3",
+      "tag": "🇸🇪 𝐀𝐳𝐚𝐝𝐢 𝟑",
       "server": "85.224.20.110",
       "server_port": 443,
       "obfs": {
@@ -178,6 +211,60 @@
           "config": [
             "-----BEGIN ECH CONFIGS-----",
             "AFf+DQBTAAAgACCr026XJyLIO+yxLKQLAYIhn9j7vH7XJfkwnUVx9TGndgAIAAEA",
+            "AQABAAMAIFstLXBxLXNpZ25hdHVyZS1zY2hlbWVzLWVuYWJsZWRdAAA=",
+            "-----END ECH CONFIGS-----"
+          ]
+        }
+      }
+    },
+    {
+      "type": "hysteria2",
+      "tag": "🇦🇺 𝐀𝐳𝐚𝐝𝐢 𝟒",
+      "server": "158.179.22.147",
+      "server_port": 443,
+      "password": "azadi1",
+      "tls": {
+        "enabled": true,
+        "server_name": "azadi1.dgi000.store",
+        "alpn": "h3",
+        "min_version": "1.3",
+        "max_version": "1.3",
+        "ech": {
+          "enabled": true,
+          "pq_signature_schemes_enabled": true,
+          "config": [
+            "-----BEGIN ECH CONFIGS-----",
+            "AFf+DQBTAAAgACCXFwt8fkiq4Q7jeLIa1lHyyUExIjVL0/a5/S2jMZZgcgAIAAEA",
+            "AQABAAMAIFstLXBxLXNpZ25hdHVyZS1zY2hlbWVzLWVuYWJsZWRdAAA=",
+            "-----END ECH CONFIGS-----"
+          ]
+        }
+      }
+    },
+    {
+      "type": "hysteria2",
+      "tag": "🇦🇺 𝐀𝐳𝐚𝐝𝐢 𝟓",
+      "server": "158.179.16.247",
+      "server_port": 443,
+      "up_mbps": 10000,
+      "down_mbps": 10000,
+      "obfs": {
+        "type": "salamander",
+        "password": "azadi2"
+      },
+      "password": "azadi2",
+      "tls": {
+        "enabled": true,
+        "server_name": "azadi2.dgi000.store",
+        "alpn": "h3",
+        "min_version": "1.3",
+        "max_version": "1.3",
+        "ech": {
+          "enabled": true,
+          "pq_signature_schemes_enabled": true,
+          "config": [
+            "-----BEGIN ECH CONFIGS-----",
+            "AFf+DQBTAAAgACA+jaA7SXc0+/M/uSXQZzBpaWqYU1h8U7OIKrGoTk7fZwAIAAEA",
             "AQABAAMAIFstLXBxLXNpZ25hdHVyZS1zY2hlbWVzLWVuYWJsZWRdAAA=",
             "-----END ECH CONFIGS-----"
           ]
