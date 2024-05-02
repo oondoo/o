@@ -3,296 +3,211 @@
 //subscription-userinfo: upload=0; download=0; total=10737418240000000; expire=0
 {
   "log": {
-    "disabled": true,
-    "level": "panic"
+    "level": "warn",
+    "output": "box.log",
+    "timestamp": true
   },
   "dns": {
     "servers": [
       {
-        "tag": "Internet-dns",
-        "address": "https://8.8.8.8/dns-query",
-        "address_resolver": "direct-dns",
-        "detour": "Internet"
+        "tag": "dns-remote",
+        "address": "udp://1.1.1.1",
+        "address_resolver": "dns-direct"
       },
       {
-        "tag": "Best Latency-dns",
-        "address": "https://8.8.8.8/dns-query",
-        "address_resolver": "direct-dns",
-        "detour": "Best Latency"
+        "tag": "dns-trick-direct",
+        "address": "https://sky.rethinkdns.com/",
+        "detour": "direct-fragment"
       },
       {
-        "tag": "direct-dns",
+        "tag": "dns-direct",
+        "address": "1.1.1.1",
+        "address_resolver": "dns-local",
+        "detour": "direct"
+      },
+      {
+        "tag": "dns-local",
         "address": "local",
         "detour": "direct"
       },
       {
-        "tag": "block-dns",
+        "tag": "dns-block",
         "address": "rcode://success"
       }
     ],
     "rules": [
       {
-        "outbound": "Internet",
-        "server": "Internet-dns",
-        "rewrite_ttl": 20
-      },
-      {
-        "outbound": "Best Latency",
-        "server": "Best Latency-dns",
-        "rewrite_ttl": 20
-      },
-      {
-        "outbound": "direct",
-        "server": "direct-dns",
-        "rewrite_ttl": 20
-      },
-      {
-        "outbound": "any",
-        "server": "direct-dns",
-        "rewrite_ttl": 20
+        "domain": "cp.cloudflare.com",
+        "server": "dns-remote",
+        "rewrite_ttl": 3000
       }
     ],
-    "disable_expire": true
+    "final": "dns-remote",
+    "static_ips": {
+      "sky.rethinkdns.com": [
+        "188.114.97.3",
+        "188.114.96.3",
+        "2a06:98c1:3121::3",
+        "2a06:98c1:3120::3",
+        "104.18.202.232",
+        "104.18.203.232",
+        "188.114.96.3",
+        "188.114.97.3",
+        "2a06:98c1:3121::3",
+        "2a06:98c1:3120::3"
+      ]
+    },
+    "independent_cache": true
   },
   "inbounds": [
     {
       "type": "tun",
       "tag": "tun-in",
-      "interface_name": "tun0",
       "mtu": 9000,
-      "inet4_address": "172.19.0.1/30",
-      "inet6_address": "fdfe:dcba:9876::1/126",
+      "inet4_address": "172.19.0.1/28",
       "auto_route": true,
       "strict_route": true,
+      "endpoint_independent_nat": true,
       "stack": "mixed",
-      "sniff": true
+      "sniff": true,
+      "sniff_override_destination": true
     },
     {
       "type": "mixed",
       "tag": "mixed-in",
-      "listen": "0.0.0.0",
-      "listen_port": 2080,
-      "sniff": true
+      "listen": "127.0.0.1",
+      "listen_port": 2334,
+      "sniff": true,
+      "sniff_override_destination": true
+    },
+    {
+      "type": "direct",
+      "tag": "dns-in",
+      "listen": "127.0.0.1",
+      "listen_port": 6450,
+      "override_address": "1.1.1.1",
+      "override_port": 53
     }
   ],
   "outbounds": [
     {
       "type": "selector",
-      "tag": "Internet",
+      "tag": "select",
       "outbounds": [
-        "Best Latency",
-        "🇳🇱 𝐈𝐑𝐂𝐏",
-        "🇫🇮 𝐀𝐳𝐚𝐝𝐢 𝟏",
-        "🇫🇮 𝐀𝐳𝐚𝐝𝐢 𝟐",
-        "🇸🇪 𝐀𝐳𝐚𝐝𝐢 𝟑",
-        "🇦🇺 𝐀𝐳𝐚𝐝𝐢 𝟒",
-        "🇦🇺 𝐀𝐳𝐚𝐝𝐢 𝟓"
-      ]
+        "auto",
+        "WARP § 0",
+        "VPNXW🇸🇪 § 1"
+      ],
+      "default": "auto"
     },
     {
       "type": "urltest",
-      "tag": "Best Latency",
+      "tag": "auto",
       "outbounds": [
-        "🇳🇱 𝐈𝐑𝐂𝐏",
-        "🇫🇮 𝐀𝐳𝐚𝐝𝐢 𝟏",
-        "🇫🇮 𝐀𝐳𝐚𝐝𝐢 𝟐",
-        "🇸🇪 𝐀𝐳𝐚𝐝𝐢 𝟑",
-        "🇦🇺 𝐀𝐳𝐚𝐝𝐢 𝟒",
-        "🇦🇺 𝐀𝐳𝐚𝐝𝐢 𝟓"
+        "WARP § 0",
+        "VPNXW🇸🇪 § 1"
       ],
-      "url": "http://www.google.com/generate_204",
+      "url": "http://cp.cloudflare.com/",
       "interval": "10m0s",
-      "tolerance": 50,
-      "idle_timeout": "30m0s"
+      "idle_timeout": "1h40m0s"
+    },
+    {
+      "type": "wireguard",
+      "tag": "WARP § 0",
+      "local_address": [
+        "172.16.0.2/24",
+        "2606:4700:110:889d:cc9c:41c3:d688:5636/128"
+      ],
+      "private_key": "AM+w1yPQiLwlW16DFNdhOqCO0Tgykj4nr5k99W4bQGw=",
+      "server": "188.114.99.23",
+      "server_port": 4233,
+      "peer_public_key": "bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=",
+      "reserved": "AAAA",
+      "mtu": 1280,
+      "fake_packets": "5-10",
+      "fake_packets_size": "40-100",
+      "fake_packets_delay": "20-250"
     },
     {
       "type": "hysteria2",
-      "tag": "🇳🇱 𝐈𝐑𝐂𝐏",
-      "server": "193.38.54.48",
-      "server_port": 443,
+      "tag": "VPNXW🇸🇪 § 1",
+      "detour": "WARP § 0",
+      "server": "217.196.106.31",
+      "server_port": 53710,
       "obfs": {
         "type": "salamander",
-        "password": "@ln2ray-5bdf790f-0af2-4481-a624-41b66e7e3489"
+        "password": "vpnxw"
       },
-      "password": "@ln2ray-5bdf790f-0af2-4481-a624-41b66e7e3489",
+      "password": "vpnxw",
       "tls": {
         "enabled": true,
-        "server_name": "let-him-cook.ircp.online",
-        "alpn": "h3",
-        "min_version": "1.3",
-        "max_version": "1.3",
-        "ech": {
-          "enabled": true,
-          "pq_signature_schemes_enabled": true,
-          "config": [
-            "-----BEGIN ECH CONFIGS-----",
-            "AFf+DQBTAAAgACCc2kqEYGusiYc5fj1smMpQJYQLckpS1bgOaCDLvoiofgAIAAEA",
-            "AQABAAMAIFstLXBxLXNpZ25hdHVyZS1zY2hlbWVzLWVuYWJsZWRdAAA=",
-            "-----END ECH CONFIGS-----"
-          ]
-        }
+        "server_name": "google.com",
+        "insecure": true
       }
     },
     {
-      "type": "hysteria2",
-      "tag": "🇫🇮 𝐀𝐳𝐚𝐝𝐢 𝟏",
-      "server": "37.27.84.192",
-      "server_port": 443,
-      "obfs": {
-        "type": "salamander",
-        "password": "EmdBRojW+aXe"
-      },
-      "password": "zjc+LBaCD7Jh",
-      "tls": {
-        "enabled": true,
-        "server_name": "candyman.segaro.tech",
-        "alpn": "h3",
-        "min_version": "1.3",
-        "max_version": "1.3",
-        "ech": {
-          "enabled": true,
-          "pq_signature_schemes_enabled": true,
-          "config": [
-            "-----BEGIN ECH CONFIGS-----",
-            "AFf+DQBTAAAgACBd19FN7R9Ncqwf60ePhvYvxOcrGijnB3hqacu8BmUbdgAIAAEA",
-            "AQABAAMAIFstLXBxLXNpZ25hdHVyZS1zY2hlbWVzLWVuYWJsZWRdAAA=",
-            "-----END ECH CONFIGS-----"
-          ]
-        }
-      }
-    },
-    {
-      "type": "hysteria2",
-      "tag": "🇫🇮 𝐀𝐳𝐚𝐝𝐢 𝟐",
-      "server": "37.27.19.153",
-      "server_port": 443,
-      "obfs": {
-        "type": "salamander",
-        "password": "Azadiobfs10qpal"
-      },
-      "password": "Azadi1047hy2",
-      "tls": {
-        "enabled": true,
-        "server_name": "Let-Me-Cook.segaro.tech",
-        "alpn": "h3",
-        "min_version": "1.3",
-        "max_version": "1.3",
-        "ech": {
-          "enabled": true,
-          "pq_signature_schemes_enabled": true,
-          "config": [
-            "-----BEGIN ECH CONFIGS-----",
-            "AFf+DQBTAAAgACDTb8vI1c4ltSPM7UuFzqYqjrqtuNG5qre6yKxJMjcqYAAIAAEA",
-            "AQABAAMAIFstLXBxLXNpZ25hdHVyZS1zY2hlbWVzLWVuYWJsZWRdAAA=",
-            "-----END ECH CONFIGS-----"
-          ]
-        }
-      }
-    },
-    {
-      "type": "hysteria2",
-      "tag": "🇸🇪 𝐀𝐳𝐚𝐝𝐢 𝟑",
-      "server": "85.224.20.110",
-      "server_port": 443,
-      "obfs": {
-        "type": "salamander",
-        "password": "e/pJmxEKoduh"
-      },
-      "password": "WQwvXHh3cMl7",
-      "tls": {
-        "enabled": true,
-        "server_name": "catchmeifyoucan.hideandsurf.com",
-        "alpn": "h3",
-        "min_version": "1.3",
-        "max_version": "1.3",
-        "ech": {
-          "enabled": true,
-          "pq_signature_schemes_enabled": true,
-          "config": [
-            "-----BEGIN ECH CONFIGS-----",
-            "AFf+DQBTAAAgACCr026XJyLIO+yxLKQLAYIhn9j7vH7XJfkwnUVx9TGndgAIAAEA",
-            "AQABAAMAIFstLXBxLXNpZ25hdHVyZS1zY2hlbWVzLWVuYWJsZWRdAAA=",
-            "-----END ECH CONFIGS-----"
-          ]
-        }
-      }
-    },
-    {
-      "type": "hysteria2",
-      "tag": "🇦🇺 𝐀𝐳𝐚𝐝𝐢 𝟒",
-      "server": "158.179.22.147",
-      "server_port": 443,
-      "password": "azadi1",
-      "tls": {
-        "enabled": true,
-        "server_name": "azadi1.dgi000.store",
-        "alpn": "h3",
-        "min_version": "1.3",
-        "max_version": "1.3",
-        "ech": {
-          "enabled": true,
-          "pq_signature_schemes_enabled": true,
-          "config": [
-            "-----BEGIN ECH CONFIGS-----",
-            "AFf+DQBTAAAgACCXFwt8fkiq4Q7jeLIa1lHyyUExIjVL0/a5/S2jMZZgcgAIAAEA",
-            "AQABAAMAIFstLXBxLXNpZ25hdHVyZS1zY2hlbWVzLWVuYWJsZWRdAAA=",
-            "-----END ECH CONFIGS-----"
-          ]
-        }
-      }
-    },
-    {
-      "type": "hysteria2",
-      "tag": "🇦🇺 𝐀𝐳𝐚𝐝𝐢 𝟓",
-      "server": "158.179.16.247",
-      "server_port": 443,
-      "up_mbps": 10000,
-      "down_mbps": 10000,
-      "obfs": {
-        "type": "salamander",
-        "password": "azadi2"
-      },
-      "password": "azadi2",
-      "tls": {
-        "enabled": true,
-        "server_name": "azadi2.dgi000.store",
-        "alpn": "h3",
-        "min_version": "1.3",
-        "max_version": "1.3",
-        "ech": {
-          "enabled": true,
-          "pq_signature_schemes_enabled": true,
-          "config": [
-            "-----BEGIN ECH CONFIGS-----",
-            "AFf+DQBTAAAgACA+jaA7SXc0+/M/uSXQZzBpaWqYU1h8U7OIKrGoTk7fZwAIAAEA",
-            "AQABAAMAIFstLXBxLXNpZ25hdHVyZS1zY2hlbWVzLWVuYWJsZWRdAAA=",
-            "-----END ECH CONFIGS-----"
-          ]
-        }
-      }
+      "type": "dns",
+      "tag": "dns-out"
     },
     {
       "type": "direct",
       "tag": "direct"
     },
     {
-      "type": "block",
-      "tag": "block"
+      "type": "direct",
+      "tag": "direct-fragment",
+      "tls_fragment": {
+        "enabled": true,
+        "size": "1-500",
+        "sleep": "0-500"
+      }
     },
     {
-      "type": "dns",
-      "tag": "dns-out"
+      "type": "direct",
+      "tag": "bypass"
+    },
+    {
+      "type": "block",
+      "tag": "block"
     }
   ],
   "route": {
+    "geoip": {
+      "path": "geo-assets/sagernet-sing-geoip-geoip.db"
+    },
+    "geosite": {
+      "path": "geo-assets/sagernet-sing-geosite-geosite.db"
+    },
     "rules": [
+      {
+        "inbound": "dns-in",
+        "outbound": "dns-out"
+      },
       {
         "port": 53,
         "outbound": "dns-out"
+      },
+      {
+        "clash_mode": "Direct",
+        "outbound": "direct"
+      },
+      {
+        "clash_mode": "Global",
+        "outbound": "select"
       }
     ],
-    "final": "Internet",
+    "final": "select",
     "auto_detect_interface": true,
     "override_android_vpn": true
+  },
+  "experimental": {
+    "cache_file": {
+      "enabled": true,
+      "path": "clash.db"
+    },
+    "clash_api": {
+      "external_controller": "127.0.0.1:6756",
+      "secret": "WDfviugsp69S5KiA"
+    }
   }
 }
