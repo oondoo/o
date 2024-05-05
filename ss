@@ -88,14 +88,18 @@
       "tag": "Internet",
       "outbounds": [
         "Best Latency",
-        "🇳🇱 𝐈𝐑𝐂𝐏"
+        "🇳🇱 𝐈𝐑𝐂𝐏",
+        "🇦🇺 𝐀𝐳𝐚𝐝𝐢 𝟏",
+        "🇦🇺 𝐀𝐳𝐚𝐝𝐢 𝟐"
       ]
     },
     {
       "type": "urltest",
       "tag": "Best Latency",
       "outbounds": [
-        "🇳🇱 𝐈𝐑𝐂𝐏"
+        "🇳🇱 𝐈𝐑𝐂𝐏",
+        "🇦🇺 𝐀𝐳𝐚𝐝𝐢 𝟏",
+        "🇦🇺 𝐀𝐳𝐚𝐝𝐢 𝟐"
       ],
       "url": "http://www.google.com/generate_204",
       "interval": "10m0s",
@@ -125,6 +129,66 @@
           "config": [
             "-----BEGIN ECH CONFIGS-----",
             "AFf+DQBTAAAgACCc2kqEYGusiYc5fj1smMpQJYQLckpS1bgOaCDLvoiofgAIAAEA",
+            "AQABAAMAIFstLXBxLXNpZ25hdHVyZS1zY2hlbWVzLWVuYWJsZWRdAAA=",
+            "-----END ECH CONFIGS-----"
+          ]
+        }
+      }
+    },
+    {
+      "type": "hysteria2",
+      "tag": "🇦🇺 𝐀𝐳𝐚𝐝𝐢 𝟏",
+      "domain_strategy": "ipv4_only",
+      "server": "152.69.179.155",
+      "server_port": 443,
+      "obfs": {
+        "type": "salamander",
+        "password": "azadi1"
+      },
+      "password": "azadi1",
+      "tls": {
+        "enabled": true,
+        "server_name": "azadi1.dgi000.store",
+        "alpn": "h3",
+        "min_version": "1.3",
+        "max_version": "1.3",
+        "ech": {
+          "enabled": true,
+          "pq_signature_schemes_enabled": true,
+          "config": [
+            "-----BEGIN ECH CONFIGS-----",
+             "AFf+DQBTAAAgACB4u436hfAkDe/FpuMFekdb9tO3/BF/kP6sVFgZpiyJVQAIAAEA",
+            "AQABAAMAIFstLXBxLXNpZ25hdHVyZS1zY2hlbWVzLWVuYWJsZWRdAAA=",
+            "-----END ECH CONFIGS-----"
+          ]
+        }
+      }
+    },
+    {
+      "type": "hysteria2",
+      "tag": "🇦🇺 𝐀𝐳𝐚𝐝𝐢 𝟐",
+      "domain_strategy": "ipv4_only",
+      "server": "158.179.18.187",
+      "server_port": 443,
+      "up_mbps": 10000,
+      "down_mbps": 10000,
+      "obfs": {
+        "type": "salamander",
+        "password": "azadi2"
+      },
+      "password": "azadi2",
+      "tls": {
+        "enabled": true,
+        "server_name": "azadi2.dgi000.store",
+        "alpn": "h3",
+        "min_version": "1.3",
+        "max_version": "1.3",
+        "ech": {
+          "enabled": true,
+          "pq_signature_schemes_enabled": true,
+          "config": [
+            "-----BEGIN ECH CONFIGS-----",
+            "AFf+DQBTAAAgACCkinnV7xhAgfgYMag1gZvWrsODivfQnc24kR2wTsH1RgAIAAEA",
             "AQABAAMAIFstLXBxLXNpZ25hdHVyZS1zY2hlbWVzLWVuYWJsZWRdAAA=",
             "-----END ECH CONFIGS-----"
           ]
@@ -163,7 +227,7 @@
     "cache_file": {
       "enabled": true,
       "path": "cache.db",
-      "cache_id": "ircp"
+      "cache_id": "azadi"
     }
   }
 }
