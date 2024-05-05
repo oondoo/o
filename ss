@@ -90,8 +90,7 @@
         "Best Latency",
         "🇳🇱 𝐈𝐑𝐂𝐏",
         "🇦🇺 𝐀𝐳𝐚𝐝𝐢 𝟏",
-        "🇦🇺 𝐀𝐳𝐚𝐝𝐢 𝟐",
-        "🇦🇺 𝐀𝐳𝐚𝐝𝐢 𝟑"
+        "🇦🇺 𝐀𝐳𝐚𝐝𝐢 𝟐"
       ]
     },
     {
@@ -100,8 +99,7 @@
       "outbounds": [
         "🇳🇱 𝐈𝐑𝐂𝐏",
         "🇦🇺 𝐀𝐳𝐚𝐝𝐢 𝟏",
-        "🇦🇺 𝐀𝐳𝐚𝐝𝐢 𝟐",
-        "🇦🇺 𝐀𝐳𝐚𝐝𝐢 𝟑"
+        "🇦🇺 𝐀𝐳𝐚𝐝𝐢 𝟐"
       ],
       "url": "http://www.google.com/generate_204",
       "interval": "10m0s",
@@ -141,8 +139,12 @@
       "type": "hysteria2",
       "tag": "🇦🇺 𝐀𝐳𝐚𝐝𝐢 𝟏",
       "domain_strategy": "ipv4_only",
-      "server": "158.179.23.78",
+      "server": "152.69.179.155",
       "server_port": 443,
+      "obfs": {
+        "type": "salamander",
+        "password": "azadi1"
+      },
       "password": "azadi1",
       "tls": {
         "enabled": true,
@@ -155,7 +157,7 @@
           "pq_signature_schemes_enabled": true,
           "config": [
             "-----BEGIN ECH CONFIGS-----",
-            "AFf+DQBTAAAgACCXFwt8fkiq4Q7jeLIa1lHyyUExIjVL0/a5/S2jMZZgcgAIAAEA",
+             "AFf+DQBTAAAgACB4u436hfAkDe/FpuMFekdb9tO3/BF/kP6sVFgZpiyJVQAIAAEA",
             "AQABAAMAIFstLXBxLXNpZ25hdHVyZS1zY2hlbWVzLWVuYWJsZWRdAAA=",
             "-----END ECH CONFIGS-----"
           ]
@@ -166,7 +168,7 @@
       "type": "hysteria2",
       "tag": "🇦🇺 𝐀𝐳𝐚𝐝𝐢 𝟐",
       "domain_strategy": "ipv4_only",
-      "server": "152.69.179.120",
+      "server": "158.179.18.187",
       "server_port": 443,
       "up_mbps": 10000,
       "down_mbps": 10000,
@@ -186,37 +188,7 @@
           "pq_signature_schemes_enabled": true,
           "config": [
             "-----BEGIN ECH CONFIGS-----",
-            "AFf+DQBTAAAgACA+jaA7SXc0+/M/uSXQZzBpaWqYU1h8U7OIKrGoTk7fZwAIAAEA",
-            "AQABAAMAIFstLXBxLXNpZ25hdHVyZS1zY2hlbWVzLWVuYWJsZWRdAAA=",
-            "-----END ECH CONFIGS-----"
-          ]
-        }
-      }
-    },
-    {
-      "type": "hysteria2",
-      "tag": "🇦🇺 𝐀𝐳𝐚𝐝𝐢 𝟑",
-      "server": "207.211.154.54",
-      "server_port": 443,
-      "up_mbps": 10000,
-      "down_mbps": 10000,
-      "obfs": {
-        "type": "salamander",
-        "password": "azadi3"
-      },
-      "password": "azadi3",
-      "tls": {
-        "enabled": true,
-        "server_name": "azadi3.dgi000.store",
-        "alpn": "h3",
-        "min_version": "1.3",
-        "max_version": "1.3",
-        "ech": {
-          "enabled": true,
-          "pq_signature_schemes_enabled": true,
-          "config": [
-            "-----BEGIN ECH CONFIGS-----",
-            "AFf+DQBTAAAgACCbXteRHXTt30OAU18ojqjAOCb+fq2qz259whXpVuf+JQAIAAEA",
+            "AFf+DQBTAAAgACCkinnV7xhAgfgYMag1gZvWrsODivfQnc24kR2wTsH1RgAIAAEA",
             "AQABAAMAIFstLXBxLXNpZ25hdHVyZS1zY2hlbWVzLWVuYWJsZWRdAAA=",
             "-----END ECH CONFIGS-----"
           ]
@@ -241,6 +213,10 @@
       {
         "port": 53,
         "outbound": "dns-out"
+      },
+      {
+        "ip_is_private": true,
+        "outbound": "direct"
       }
     ],
     "final": "Internet",
@@ -251,7 +227,7 @@
     "cache_file": {
       "enabled": true,
       "path": "cache.db",
-      "cache_id": "ircp"
+      "cache_id": "azadi"
     }
   }
 }
