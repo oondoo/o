@@ -12,17 +12,23 @@
         "tag": "Internet-dns",
         "address": "https://8.8.8.8/dns-query",
         "address_resolver": "direct-dns",
+        "address_strategy": "ipv4_only",
+        "strategy": "ipv4_only",
         "detour": "Internet"
       },
       {
         "tag": "Best Latency-dns",
         "address": "https://8.8.8.8/dns-query",
         "address_resolver": "direct-dns",
+        "address_strategy": "ipv4_only",
+        "strategy": "ipv4_only",
         "detour": "Best Latency"
       },
       {
         "tag": "direct-dns",
         "address": "local",
+        "address_strategy": "ipv4_only",
+        "strategy": "ipv4_only",
         "detour": "direct"
       },
       {
@@ -52,6 +58,7 @@
         "rewrite_ttl": 20
       }
     ],
+    "strategy": "ipv4_only",
     "disable_expire": true
   },
   "inbounds": [
@@ -61,7 +68,6 @@
       "interface_name": "tun0",
       "mtu": 9000,
       "inet4_address": "172.19.0.1/30",
-      "inet6_address": "fdfe:dcba:9876::1/126",
       "auto_route": true,
       "strict_route": true,
       "stack": "mixed",
@@ -72,7 +78,8 @@
       "tag": "mixed-in",
       "listen": "0.0.0.0",
       "listen_port": 2080,
-      "sniff": true
+      "sniff": true,
+      "domain_strategy": "ipv4_only"
     }
   ],
   "outbounds": [
@@ -82,9 +89,8 @@
       "outbounds": [
         "Best Latency",
         "🇳🇱 𝐈𝐑𝐂𝐏",
-        "🇳🇱 𝐈𝐑𝐂𝐏 - 𝟐",
-        "🇳🇱 𝐈𝐑𝐂𝐏 - 𝐢𝐩𝐯𝟔",
-        "🇳🇱 𝐈𝐑𝐂𝐏 - 𝟐 - 𝐢𝐩𝐯𝟔"
+        "🇦🇺 𝐀𝐳𝐚𝐝𝐢 𝟏",
+        "🇦🇺 𝐀𝐳𝐚𝐝𝐢 𝟐"
       ]
     },
     {
@@ -92,9 +98,8 @@
       "tag": "Best Latency",
       "outbounds": [
         "🇳🇱 𝐈𝐑𝐂𝐏",
-        "🇳🇱 𝐈𝐑𝐂𝐏 - 𝟐",
-        "🇳🇱 𝐈𝐑𝐂𝐏 - 𝐢𝐩𝐯𝟔",
-        "🇳🇱 𝐈𝐑𝐂𝐏 - 𝟐 - 𝐢𝐩𝐯𝟔"
+        "🇦🇺 𝐀𝐳𝐚𝐝𝐢 𝟏",
+        "🇦🇺 𝐀𝐳𝐚𝐝𝐢 𝟐"
       ],
       "url": "http://www.google.com/generate_204",
       "interval": "10m0s",
@@ -104,6 +109,7 @@
     {
       "type": "hysteria2",
       "tag": "🇳🇱 𝐈𝐑𝐂𝐏",
+      "domain_strategy": "ipv4_only",
       "server": "193.38.54.48",
       "server_port": 443,
       "obfs": {
@@ -131,17 +137,18 @@
     },
     {
       "type": "hysteria2",
-      "tag": "🇳🇱 𝐈𝐑𝐂𝐏 - 𝟐",
-      "server": "37.221.127.169",
+      "tag": "🇦🇺 𝐀𝐳𝐚𝐝𝐢 𝟏",
+      "domain_strategy": "ipv4_only",
+      "server": "152.69.179.155",
       "server_port": 443,
       "obfs": {
         "type": "salamander",
-        "password": "@ln2ray-5bdf790f-0af2-4481-a624-41b66e7e3489-2"
+        "password": "azadi1"
       },
-      "password": "@ln2ray-5bdf790f-0af2-4481-a624-41b66e7e3489-2",
+      "password": "azadi1",
       "tls": {
         "enabled": true,
-        "server_name": "let-her-cook.ircp.online",
+        "server_name": "azadi1.dgi000.store",
         "alpn": "h3",
         "min_version": "1.3",
         "max_version": "1.3",
@@ -150,7 +157,7 @@
           "pq_signature_schemes_enabled": true,
           "config": [
             "-----BEGIN ECH CONFIGS-----",
-            "AFf+DQBTAAAgACDEm4x9dlkKtLblXP7y0ZjKr7g6DdP2WaOgIjI6ujcnTQAIAAEA",
+             "AFf+DQBTAAAgACB4u436hfAkDe/FpuMFekdb9tO3/BF/kP6sVFgZpiyJVQAIAAEA",
             "AQABAAMAIFstLXBxLXNpZ25hdHVyZS1zY2hlbWVzLWVuYWJsZWRdAAA=",
             "-----END ECH CONFIGS-----"
           ]
@@ -159,17 +166,20 @@
     },
     {
       "type": "hysteria2",
-      "tag": "🇳🇱 𝐈𝐑𝐂𝐏 - 𝐢𝐩𝐯𝟔",
-      "server": "2a09:7c44:0:14::1",
+      "tag": "🇦🇺 𝐀𝐳𝐚𝐝𝐢 𝟐",
+      "domain_strategy": "ipv4_only",
+      "server": "158.179.18.187",
       "server_port": 443,
+      "up_mbps": 10000,
+      "down_mbps": 10000,
       "obfs": {
         "type": "salamander",
-        "password": "@ln2ray-5bdf790f-0af2-4481-a624-41b66e7e3489"
+        "password": "azadi2"
       },
-      "password": "@ln2ray-5bdf790f-0af2-4481-a624-41b66e7e3489",
+      "password": "azadi2",
       "tls": {
         "enabled": true,
-        "server_name": "let-him-cook.ircp.online",
+        "server_name": "azadi2.dgi000.store",
         "alpn": "h3",
         "min_version": "1.3",
         "max_version": "1.3",
@@ -178,35 +188,7 @@
           "pq_signature_schemes_enabled": true,
           "config": [
             "-----BEGIN ECH CONFIGS-----",
-            "AFf+DQBTAAAgACCc2kqEYGusiYc5fj1smMpQJYQLckpS1bgOaCDLvoiofgAIAAEA",
-            "AQABAAMAIFstLXBxLXNpZ25hdHVyZS1zY2hlbWVzLWVuYWJsZWRdAAA=",
-            "-----END ECH CONFIGS-----"
-          ]
-        }
-      }
-    },
-    {
-      "type": "hysteria2",
-      "tag": "🇳🇱 𝐈𝐑𝐂𝐏 - 𝟐 - 𝐢𝐩𝐯𝟔",
-      "server": "2a09:7c44:0:13::1",
-      "server_port": 443,
-      "obfs": {
-        "type": "salamander",
-        "password": "@ln2ray-5bdf790f-0af2-4481-a624-41b66e7e3489-2"
-      },
-      "password": "@ln2ray-5bdf790f-0af2-4481-a624-41b66e7e3489-2",
-      "tls": {
-        "enabled": true,
-        "server_name": "let-her-cook.ircp.online",
-        "alpn": "h3",
-        "min_version": "1.3",
-        "max_version": "1.3",
-        "ech": {
-          "enabled": true,
-          "pq_signature_schemes_enabled": true,
-          "config": [
-            "-----BEGIN ECH CONFIGS-----",
-            "AFf+DQBTAAAgACDEm4x9dlkKtLblXP7y0ZjKr7g6DdP2WaOgIjI6ujcnTQAIAAEA",
+            "AFf+DQBTAAAgACCkinnV7xhAgfgYMag1gZvWrsODivfQnc24kR2wTsH1RgAIAAEA",
             "AQABAAMAIFstLXBxLXNpZ25hdHVyZS1zY2hlbWVzLWVuYWJsZWRdAAA=",
             "-----END ECH CONFIGS-----"
           ]
@@ -245,7 +227,7 @@
     "cache_file": {
       "enabled": true,
       "path": "cache.db",
-      "cache_id": "ircp"
+      "cache_id": "azadi"
     }
   }
 }
