@@ -10,13 +10,13 @@
     "servers": [
       {
         "tag": "Internet-dns",
-        "address": "https://8.8.8.8/dns-query",
+        "address": "tcp://8.8.8.8",
         "address_resolver": "direct-dns",
         "detour": "Internet"
       },
       {
         "tag": "Best Latency-dns",
-        "address": "https://8.8.8.8/dns-query",
+        "address": "tcp://8.8.8.8",
         "address_resolver": "direct-dns",
         "detour": "Best Latency"
       },
@@ -84,7 +84,9 @@
         "🇳🇱 𝐈𝐑𝐂𝐏",
         "🇳🇱 𝐈𝐑𝐂𝐏 - 𝟐",
         "🇳🇱 𝐈𝐑𝐂𝐏 - 𝐢𝐩𝐯𝟔",
-        "🇳🇱 𝐈𝐑𝐂𝐏 - 𝟐 - 𝐢𝐩𝐯𝟔"
+        "🇳🇱 𝐈𝐑𝐂𝐏 - 𝟐 - 𝐢𝐩𝐯𝟔",
+        "🇦🇺 𝐀𝐳𝐚𝐝𝐢 𝟏",
+        "🇦🇺 𝐀𝐳𝐚𝐝𝐢 𝟐"
       ]
     },
     {
@@ -94,7 +96,9 @@
         "🇳🇱 𝐈𝐑𝐂𝐏",
         "🇳🇱 𝐈𝐑𝐂𝐏 - 𝟐",
         "🇳🇱 𝐈𝐑𝐂𝐏 - 𝐢𝐩𝐯𝟔",
-        "🇳🇱 𝐈𝐑𝐂𝐏 - 𝟐 - 𝐢𝐩𝐯𝟔"
+        "🇳🇱 𝐈𝐑𝐂𝐏 - 𝟐 - 𝐢𝐩𝐯𝟔",
+        "🇦🇺 𝐀𝐳𝐚𝐝𝐢 𝟏",
+        "🇦🇺 𝐀𝐳𝐚𝐝𝐢 𝟐"
       ],
       "url": "http://www.google.com/generate_204",
       "interval": "10m0s",
@@ -214,6 +218,64 @@
       }
     },
     {
+      "type": "hysteria2",
+      "tag": "🇦🇺 𝐀𝐳𝐚𝐝𝐢 𝟏",
+      "server": "152.69.179.155",
+      "server_port": 443,
+      "obfs": {
+        "type": "salamander",
+        "password": "azadi1"
+      },
+      "password": "azadi1",
+      "tls": {
+        "enabled": true,
+        "server_name": "azadi1.dgi000.store",
+        "alpn": "h3",
+        "min_version": "1.3",
+        "max_version": "1.3",
+        "ech": {
+          "enabled": true,
+          "pq_signature_schemes_enabled": true,
+          "config": [
+            "-----BEGIN ECH CONFIGS-----",
+            "AFf+DQBTAAAgACB4u436hfAkDe/FpuMFekdb9tO3/BF/kP6sVFgZpiyJVQAIAAEA",
+            "AQABAAMAIFstLXBxLXNpZ25hdHVyZS1zY2hlbWVzLWVuYWJsZWRdAAA=",
+            "-----END ECH CONFIGS-----"
+          ]
+        }
+      }
+    },
+    {
+      "type": "hysteria2",
+      "tag": "🇦🇺 𝐀𝐳𝐚𝐝𝐢 𝟐",
+      "server": "158.179.18.187",
+      "server_port": 443,
+      "up_mbps": 10000,
+      "down_mbps": 10000,
+      "obfs": {
+        "type": "salamander",
+        "password": "azadi2"
+      },
+      "password": "azadi2",
+      "tls": {
+        "enabled": true,
+        "server_name": "azadi2.dgi000.store",
+        "alpn": "h3",
+        "min_version": "1.3",
+        "max_version": "1.3",
+        "ech": {
+          "enabled": true,
+          "pq_signature_schemes_enabled": true,
+          "config": [
+            "-----BEGIN ECH CONFIGS-----",
+            "AFf+DQBTAAAgACCkinnV7xhAgfgYMag1gZvWrsODivfQnc24kR2wTsH1RgAIAAEA",
+            "AQABAAMAIFstLXBxLXNpZ25hdHVyZS1zY2hlbWVzLWVuYWJsZWRdAAA=",
+            "-----END ECH CONFIGS-----"
+          ]
+        }
+      }
+    },
+    {
       "type": "direct",
       "tag": "direct"
     },
@@ -245,7 +307,7 @@
     "cache_file": {
       "enabled": true,
       "path": "cache.db",
-      "cache_id": "ircp"
+      "cache_id": "azadi"
     }
   }
 }
