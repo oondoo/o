@@ -1,6 +1,7 @@
 //profile-title: base64:Q2FsbSBEb3duIPCfkpnwn4yz4piY77iP8J+SmQ==
 //profile-update-interval: 7
 //subscription-userinfo: upload=0; download=0; total=10737418240000000; expire=0
+//support-url: https://t.me/azadi_az_inja_migzare
 {
   "log": {
     "level": "warn",
