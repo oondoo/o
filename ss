@@ -4,105 +4,90 @@
 //support-url: https://t.me/azadi_az_inja_migzare
 {
   "log": {
-    "level": "warn",
-    "output": "box.log",
-    "timestamp": true
+    "disabled": true,
+    "level": "panic"
   },
   "dns": {
     "servers": [
       {
-        "tag": "dns-remote",
+        "tag": "Internet-dns",
         "address": "https://8.8.8.8/dns-query",
-        "address_resolver": "dns-direct"
+        "address_resolver": "direct-dns",
+        "detour": "Internet"
       },
       {
-        "tag": "dns-trick-direct",
-        "address": "https://sky.rethinkdns.com/",
-        "detour": "direct-fragment"
+        "tag": "Best Latency-dns",
+        "address": "https://8.8.8.8/dns-query",
+        "address_resolver": "direct-dns",
+        "detour": "Best Latency"
       },
       {
-        "tag": "dns-direct",
-        "address": "8.8.8.8",
-        "address_resolver": "dns-local",
-        "detour": "direct"
-      },
-      {
-        "tag": "dns-local",
+        "tag": "direct-dns",
         "address": "local",
         "detour": "direct"
       },
       {
-        "tag": "dns-block",
+        "tag": "block-dns",
         "address": "rcode://success"
       }
     ],
     "rules": [
       {
-        "domain": "cp.cloudflare.com",
-        "server": "dns-remote",
-        "rewrite_ttl": 3000
+        "outbound": "Internet",
+        "server": "Internet-dns",
+        "rewrite_ttl": 20
+      },
+      {
+        "outbound": "Best Latency",
+        "server": "Best Latency-dns",
+        "rewrite_ttl": 20
+      },
+      {
+        "outbound": "direct",
+        "server": "direct-dns",
+        "rewrite_ttl": 20
+      },
+      {
+        "outbound": "any",
+        "server": "direct-dns",
+        "rewrite_ttl": 20
       }
     ],
-    "final": "dns-remote",
-    "static_ips": {
-      "sky.rethinkdns.com": [
-        "188.114.98.0",
-        "188.114.99.0",
-        "2a06:98c1:3120::6",
-        "2a06:98c1:3121::6",
-        "104.18.203.232",
-        "104.18.202.232",
-        "188.114.96.3",
-        "188.114.97.3",
-        "2a06:98c1:3120::6",
-        "2a06:98c1:3121::6"
-      ]
-    },
-    "independent_cache": true
+    "disable_expire": true
   },
   "inbounds": [
     {
       "type": "tun",
       "tag": "tun-in",
+      "interface_name": "tun0",
       "mtu": 9000,
-      "inet4_address": "172.19.0.1/28",
+      "inet4_address": "172.19.0.1/30",
       "inet6_address": "fdfe:dcba:9876::1/126",
       "auto_route": true,
       "strict_route": true,
-      "endpoint_independent_nat": true,
       "stack": "mixed",
-      "sniff": true,
-      "sniff_override_destination": true
+      "sniff": true
     },
     {
       "type": "mixed",
       "tag": "mixed-in",
-      "listen": "127.0.0.1",
-      "listen_port": 2334,
-      "sniff": true,
-      "sniff_override_destination": true
-    },
-    {
-      "type": "direct",
-      "tag": "dns-in",
-      "listen": "127.0.0.1",
-      "listen_port": 6450,
-      "override_address": "1.1.1.1",
-      "override_port": 53
+      "listen": "0.0.0.0",
+      "listen_port": 2080,
+      "sniff": true
     }
   ],
   "outbounds": [
     {
       "type": "selector",
-      "tag": "select",
+      "tag": "Internet",
       "outbounds": [
-        "auto",
+        "Best Latency",
         "🇳🇱 𝐈𝐑𝐂𝐏\n@Ln2Ray",
         "🇳🇱 𝐈𝐑𝐂𝐏 | 𝐢𝐩𝐯𝟔\n@Ln2Ray",
         "🇳🇱 𝐈𝐑𝐂𝐏 | 𝟐\n@Ln2Ray",
         "🇳🇱 𝐈𝐑𝐂𝐏 | 𝟐 | 𝐢𝐩𝐯𝟔\n@Ln2Ray",
-        "🇳🇱 𝐈𝐑𝐂𝐏 | 𝟏\u0026𝟐\n@Ln2Ray",
-        "🇳🇱 𝐈𝐑𝐂𝐏 | 𝟏\u0026𝟐 | 𝐢𝐩𝐯𝟔\n@Ln2Ray",
+        "🇳🇱 𝐈𝐑𝐂𝐏 | 𝟏&𝟐\n@Ln2Ray",
+        "🇳🇱 𝐈𝐑𝐂𝐏 | 𝟏&𝟐 | 𝐢𝐩𝐯𝟔\n@Ln2Ray",
         "🇸🇪 𝐅𝐮𝐜𝐤 𝐒𝐞𝐝𝐢𝐭𝐢𝐨𝐧 𝐨𝐟 𝟏𝟑𝟓𝟕\n@azadi_az_inja_migzare",
         "🇸🇪 𝐅𝐮𝐜𝐤 𝐒𝐞𝐝𝐢𝐭𝐢𝐨𝐧 𝐨𝐟 𝟏𝟑𝟓𝟕\n@azadi_az_inja_migzare § 0",
         "🇸🇪 𝐅𝐮𝐜𝐤 𝐒𝐞𝐝𝐢𝐭𝐢𝐨𝐧 𝐨𝐟 𝟏𝟑𝟓𝟕 | 𝐢𝐩𝐯𝟔\n@azadi_az_inja_migzare",
@@ -122,19 +107,18 @@
         "🇺🇸 𝐅𝐮𝐜𝐤 𝐒𝐞𝐝𝐢𝐭𝐢𝐨𝐧 𝐨𝐟 𝟏𝟑𝟓𝟕 | 𝐢𝐩𝐯𝟔\n@azadi_az_inja_migzare",
         "🇦🇺 𝐅𝐮𝐜𝐤 𝐒𝐞𝐝𝐢𝐭𝐢𝐨𝐧 𝐨𝐟 𝟏𝟑𝟓𝟕\n@azadi_az_inja_migzare",
         "🇦🇺 𝐅𝐮𝐜𝐤 𝐒𝐞𝐝𝐢𝐭𝐢𝐨𝐧 𝐨𝐟 𝟏𝟑𝟓𝟕 | 𝟐\n@azadi_az_inja_migzare"
-      ],
-      "default": "auto"
+      ]
     },
     {
       "type": "urltest",
-      "tag": "auto",
+      "tag": "Best Latency",
       "outbounds": [
         "🇳🇱 𝐈𝐑𝐂𝐏\n@Ln2Ray",
         "🇳🇱 𝐈𝐑𝐂𝐏 | 𝐢𝐩𝐯𝟔\n@Ln2Ray",
         "🇳🇱 𝐈𝐑𝐂𝐏 | 𝟐\n@Ln2Ray",
         "🇳🇱 𝐈𝐑𝐂𝐏 | 𝟐 | 𝐢𝐩𝐯𝟔\n@Ln2Ray",
-        "🇳🇱 𝐈𝐑𝐂𝐏 | 𝟏\u0026𝟐\n@Ln2Ray",
-        "🇳🇱 𝐈𝐑𝐂𝐏 | 𝟏\u0026𝟐 | 𝐢𝐩𝐯𝟔\n@Ln2Ray",
+        "🇳🇱 𝐈𝐑𝐂𝐏 | 𝟏&𝟐\n@Ln2Ray",
+        "🇳🇱 𝐈𝐑𝐂𝐏 | 𝟏&𝟐 | 𝐢𝐩𝐯𝟔\n@Ln2Ray",
         "🇸🇪 𝐅𝐮𝐜𝐤 𝐒𝐞𝐝𝐢𝐭𝐢𝐨𝐧 𝐨𝐟 𝟏𝟑𝟓𝟕\n@azadi_az_inja_migzare",
         "🇸🇪 𝐅𝐮𝐜𝐤 𝐒𝐞𝐝𝐢𝐭𝐢𝐨𝐧 𝐨𝐟 𝟏𝟑𝟓𝟕\n@azadi_az_inja_migzare § 0",
         "🇸🇪 𝐅𝐮𝐜𝐤 𝐒𝐞𝐝𝐢𝐭𝐢𝐨𝐧 𝐨𝐟 𝟏𝟑𝟓𝟕 | 𝐢𝐩𝐯𝟔\n@azadi_az_inja_migzare",
@@ -157,7 +141,8 @@
       ],
       "url": "http://www.google.com/generate_204",
       "interval": "10m0s",
-      "idle_timeout": "1h40m0s"
+      "tolerance": 50,
+      "idle_timeout": "30m0s"
     },
     {
       "type": "hysteria2",
@@ -273,12 +258,7 @@
     },
     {
       "type": "vless",
-      "tag": "🇳🇱 𝐈𝐑𝐂𝐏 | 𝟏\u0026𝟐\n@Ln2Ray",
-      "tls_fragment": {
-        "enabled": true,
-        "size": "10-20",
-        "sleep": "0"
-      },
+      "tag": "🇳🇱 𝐈𝐑𝐂𝐏 | 𝟏&𝟐\n@Ln2Ray",
       "server": "188.114.96.12",
       "server_port": 443,
       "uuid": "5bdf790f-0af2-4481-a624-41b66e7e3489",
@@ -304,12 +284,7 @@
     },
     {
       "type": "vless",
-      "tag": "🇳🇱 𝐈𝐑𝐂𝐏 | 𝟏\u0026𝟐 | 𝐢𝐩𝐯𝟔\n@Ln2Ray",
-      "tls_fragment": {
-        "enabled": true,
-        "size": "10-20",
-        "sleep": "0"
-      },
+      "tag": "🇳🇱 𝐈𝐑𝐂𝐏 | 𝟏&𝟐 | 𝐢𝐩𝐯𝟔\n@Ln2Ray",
       "server": "2a06:98c1:3121::c",
       "server_port": 443,
       "uuid": "5bdf790f-0af2-4481-a624-41b66e7e3489",
@@ -364,11 +339,6 @@
     {
       "type": "vless",
       "tag": "🇸🇪 𝐅𝐮𝐜𝐤 𝐒𝐞𝐝𝐢𝐭𝐢𝐨𝐧 𝐨𝐟 𝟏𝟑𝟓𝟕\n@azadi_az_inja_migzare § 0",
-      "tls_fragment": {
-        "enabled": true,
-        "size": "10-20",
-        "sleep": "0"
-      },
       "server": "188.114.96.12",
       "server_port": 443,
       "uuid": "81625684-4552-49f8-b1c1-1f14790528c5",
@@ -395,11 +365,6 @@
     {
       "type": "vless",
       "tag": "🇸🇪 𝐅𝐮𝐜𝐤 𝐒𝐞𝐝𝐢𝐭𝐢𝐨𝐧 𝐨𝐟 𝟏𝟑𝟓𝟕 | 𝐢𝐩𝐯𝟔\n@azadi_az_inja_migzare",
-      "tls_fragment": {
-        "enabled": true,
-        "size": "10-20",
-        "sleep": "0"
-      },
       "server": "2a06:98c1:3121::c",
       "server_port": 443,
       "uuid": "81625684-4552-49f8-b1c1-1f14790528c5",
@@ -482,11 +447,6 @@
     {
       "type": "vless",
       "tag": "🇦🇹 𝐅𝐮𝐜𝐤 𝐒𝐞𝐝𝐢𝐭𝐢𝐨𝐧 𝐨𝐟 𝟏𝟑𝟓𝟕\n@azadi_az_inja_migzare § 0",
-      "tls_fragment": {
-        "enabled": true,
-        "size": "10-20",
-        "sleep": "0"
-      },
       "server": "188.114.96.12",
       "server_port": 443,
       "uuid": "b947d658-8140-4ea0-ba18-23a6d48788bb",
@@ -513,11 +473,6 @@
     {
       "type": "vless",
       "tag": "🇦🇹 𝐅𝐮𝐜𝐤 𝐒𝐞𝐝𝐢𝐭𝐢𝐨𝐧 𝐨𝐟 𝟏𝟑𝟓𝟕 | 𝐢𝐩𝐯𝟔\n@azadi_az_inja_migzare § 0",
-      "tls_fragment": {
-        "enabled": true,
-        "size": "10-20",
-        "sleep": "0"
-      },
       "server": "2a06:98c1:3121::c",
       "server_port": 443,
       "uuid": "b947d658-8140-4ea0-ba18-23a6d48788bb",
@@ -600,11 +555,6 @@
     {
       "type": "vless",
       "tag": "🇫🇮 𝐅𝐮𝐜𝐤 𝐒𝐞𝐝𝐢𝐭𝐢𝐨𝐧 𝐨𝐟 𝟏𝟑𝟓𝟕\n@azadi_az_inja_migzare § 0",
-      "tls_fragment": {
-        "enabled": true,
-        "size": "10-20",
-        "sleep": "0"
-      },
       "server": "188.114.96.12",
       "server_port": 443,
       "uuid": "323f3148-db47-4f7c-a26e-50a53093c261",
@@ -631,11 +581,6 @@
     {
       "type": "vless",
       "tag": "🇫🇮 𝐅𝐮𝐜𝐤 𝐒𝐞𝐝𝐢𝐭𝐢𝐨𝐧 𝐨𝐟 𝟏𝟑𝟓𝟕 | 𝐢𝐩𝐯𝟔\n@azadi_az_inja_migzare § 0",
-      "tls_fragment": {
-        "enabled": true,
-        "size": "10-20",
-        "sleep": "0"
-      },
       "server": "2a06:98c1:3121::c",
       "server_port": 443,
       "uuid": "323f3148-db47-4f7c-a26e-50a53093c261",
@@ -690,11 +635,6 @@
     {
       "type": "vless",
       "tag": "🇳🇱 𝐅𝐮𝐜𝐤 𝐒𝐞𝐝𝐢𝐭𝐢𝐨𝐧 𝐨𝐟 𝟏𝟑𝟓𝟕\n@azadi_az_inja_migzare § 0",
-      "tls_fragment": {
-        "enabled": true,
-        "size": "10-20",
-        "sleep": "0"
-      },
       "server": "188.114.96.12",
       "server_port": 443,
       "uuid": "b947d658-8140-4ea0-ba18-23a6d48788bb",
@@ -721,11 +661,6 @@
     {
       "type": "vless",
       "tag": "🇳🇱 𝐅𝐮𝐜𝐤 𝐒𝐞𝐝𝐢𝐭𝐢𝐨𝐧 𝐨𝐟 𝟏𝟑𝟓𝟕 | 𝐢𝐩𝐯𝟔\n@azadi_az_inja_migzare",
-      "tls_fragment": {
-        "enabled": true,
-        "size": "10-20",
-        "sleep": "0"
-      },
       "server": "2a06:98c1:3121::c",
       "server_port": 443,
       "uuid": "b947d658-8140-4ea0-ba18-23a6d48788bb",
@@ -780,11 +715,6 @@
     {
       "type": "vless",
       "tag": "🇺🇸 𝐅𝐮𝐜𝐤 𝐒𝐞𝐝𝐢𝐭𝐢𝐨𝐧 𝐨𝐟 𝟏𝟑𝟓𝟕\n@azadi_az_inja_migzare § 0",
-      "tls_fragment": {
-        "enabled": true,
-        "size": "10-20",
-        "sleep": "0"
-      },
       "server": "188.114.96.12",
       "server_port": 443,
       "uuid": "b947d658-8140-4ea0-ba18-23a6d48788bb",
@@ -811,11 +741,6 @@
     {
       "type": "vless",
       "tag": "🇺🇸 𝐅𝐮𝐜𝐤 𝐒𝐞𝐝𝐢𝐭𝐢𝐨𝐧 𝐨𝐟 𝟏𝟑𝟓𝟕 | 𝐢𝐩𝐯𝟔\n@azadi_az_inja_migzare",
-      "tls_fragment": {
-        "enabled": true,
-        "size": "10-20",
-        "sleep": "0"
-      },
       "server": "2a06:98c1:3121::c",
       "server_port": 443,
       "uuid": "b947d658-8140-4ea0-ba18-23a6d48788bb",
@@ -898,72 +823,38 @@
       }
     },
     {
-      "type": "dns",
-      "tag": "dns-out"
-    },
-    {
       "type": "direct",
       "tag": "direct"
     },
     {
-      "type": "direct",
-      "tag": "direct-fragment",
-      "tls_fragment": {
-        "enabled": true,
-        "size": "10-20",
-        "sleep": "0"
-      }
-    },
-    {
-      "type": "direct",
-      "tag": "bypass"
-    },
-    {
       "type": "block",
       "tag": "block"
+    },
+    {
+      "type": "dns",
+      "tag": "dns-out"
     }
   ],
   "route": {
-    "geoip": {
-      "path": "geo-assets/sagernet-sing-geoip-geoip.db"
-    },
-    "geosite": {
-      "path": "geo-assets/sagernet-sing-geosite-geosite.db"
-    },
     "rules": [
-      {
-        "inbound": "dns-in",
-        "outbound": "dns-out"
-      },
       {
         "port": 53,
         "outbound": "dns-out"
       },
       {
-        "clash_mode": "Direct",
+        "ip_is_private": true,
         "outbound": "direct"
-      },
-      {
-        "clash_mode": "Global",
-        "outbound": "select"
-      },
-      {
-        "geoip": "private",
-        "outbound": "bypass"
       }
     ],
-    "final": "select",
+    "final": "Internet",
     "auto_detect_interface": true,
     "override_android_vpn": true
   },
   "experimental": {
     "cache_file": {
       "enabled": true,
-      "path": "clash.db"
-    },
-    "clash_api": {
-      "external_controller": "127.0.0.1:6756",
-      "secret": "gaPiGtXZCx8dvDUs"
+      "path": "cache.db",
+      "cache_id": "azadi"
     }
   }
 }
