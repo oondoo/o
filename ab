@@ -2,7 +2,39 @@
 //profile-update-interval: 8
 //subscription-userinfo: upload=0; download=0; total=10737418240000000; expire=0
 //support-url: https://github.com/hiddify/hiddify-next/releases
-vless://3c0167ae-1132-4711-8f5f-000acbfc0136@www.speedtest.net:8880?type=ws&path=%2FThunder%2CThunder%2CThunder%2CThunder%2CThunder%2CThunder%2CThunder%2CThunder%2CThunder%2CThunder%2CThunder%2CThunder%2CThunder%2CThunder%3Fed%3D2048&host=1505-wordpress-admin-vip-panel-cpanrl-iran-chanel.mralpha-vpn.COM.&security=none#%E2%9A%A1%EF%B8%8FWS97%20%40argo_vpnn
-vless://telegram-id-PcV2ray@www.speedtest.net:8080?type=ws&path=%2F-PcV2ry--PcV2ry-TEL--PcV2ry-TEL--PcV2ry-TEL--PcV2ry%3Fed%3D8080&host=1.V2.h.www.speedtest.net.mehpow.iR.&security=none#WS1-argo_vpnn
-vless://d9c65d12-b9f4-49d6-9b38-1325298be20b@speedtest.net:443?path=%2F-%40CR7V2RY--%40CR7V2RY--%40CR7V2RY--%40CR7V2RY--%40CR7V2RY--%40CR7V2RY--%40CR7V2RY--%40CR7V2RY--%40CR7V2RY--%40CR7V2RY--%40CR7V2RY--%40CR7V2RY--%40CR7V2RY%3Fed%3D1024&security=tls&encryption=none&alpn=h2,http/1.1&host=cr7v2ray.com&fp=chrome&type=ws&sni=speedtest.net#%40argo_vpnn+%7C+ALL%F0%9F%9F%A1%F0%9F%94%B5
-vless://telegram-id-ArV2ray@www.speedtest.net:2095?path=%2Ftelegram-ArV2ry,telegram-ArV2ry,telegram-ArV2ry,telegram-ArV2ry,telegram-ArV2ry,telegram-ArV2ry,telegram-ArV2ry,telegram-ArV2ry,telegram-ArV2ry,telegram-ArV2ry,telegram-ArV2ry%3Fed%3D2095&security=none&encryption=none&host=8.V.V2.www.speedtest.net.x.debian.org.bahrane.iR.&type=ws#WS5-All-@argo_vpnn
+{
+  "outbounds": [
+    {
+      "type": "wireguard",
+      "tag": "🇫🇷Windscribe",
+      "detour": "🇸🇪H2",
+      "local_address": "100.100.196.8/32",
+      "private_key": "qKgJJNTkkAr37k74Ix7FkdB3tVIHE1rQBOp4adjm2HU=",
+      "server": "138.199.47.222",
+      "server_port": 65142,
+      "peer_public_key": "cmaT8JIehfRf5PWWDkcBRwLWDb3jrIkk/SDbw4JmUAc=",
+      "pre_shared_key": "p9oZWElz4vn74dOqa0+UNIJGxy2/VeBF6b8YIfmVgY0=",
+      "mtu": 1280
+    },
+    {
+      "obfs": {
+        "password": "4ff648165e163025",
+        "type": "salamander"
+      },
+      "password": "234454ef8c3beddc",
+      "server": "193.188.20.199",
+      "server_port": 443,
+      "tls": {
+        "alpn": [
+          "h3"
+        ],
+        "enabled": true,
+        "insecure": true,
+        "server_name": "www.google.com"
+      },
+      "type": "hysteria2",
+      "domain_strategy": "",
+      "tag": "🇸🇪H2"
+}
+]
+}
