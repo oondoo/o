@@ -55,8 +55,8 @@
       "sky.rethinkdns.com": [
         "104.17.148.22",
         "104.17.147.22",
-        "2a06:98c1:3121::3",
         "2a06:98c1:3120::3",
+        "2a06:98c1:3121::3",
         "188.114.96.3",
         "188.114.97.3"
       ]
@@ -116,13 +116,13 @@
       "tag": "mm § 0",
       "local_address": [
         "172.16.0.2/24",
-        "2606:4700:110:83ee:fc06:5ca3:ffce:4ee2/128"
+        "2606:4700:110:8ed6:b89b:8900:b7b6:613f/128"
       ],
-      "private_key": "EAQQQYtQmPr7yx/Pk4T7Xv1M+8jY3GfAzCh7CugHGWE=",
-      "server": "2606:4700:d1::c989:c184:9c20",
-      "server_port": 7156,
+      "private_key": "uN/RQVgRXEZ+EcQPHG3K3W4S1t7Kf6zblqreyD4qEF4=",
+      "server": "2606:4700:d0::2944:552:4ae7:621c",
+      "server_port": 987,
       "peer_public_key": "bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=",
-      "reserved": [ 87, 126, 3 ],
+      "reserved": "PK6V",
       "mtu": 1330,
       "fake_packets": "40-80",
       "fake_packets_size": "50-100",
@@ -208,7 +208,7 @@
     },
     "clash_api": {
       "external_controller": "127.0.0.1:16756",
-      "secret": "TzV7xZJHsYS7GYiH"
+      "secret": "_1_SqaDl07BVJOqC"
     }
   }
 }
