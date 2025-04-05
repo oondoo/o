@@ -11,34 +11,20 @@
     "servers": [
       {
         "tag": "Internet-dns",
-        "address": "https://1.1.1.2/dns-query",
-        "strategy": "prefer_ipv4",
+        "address": "tcp://76.76.2.2",
+        "strategy": "ipv4_only",
         "detour": "Internet"
       },
       {
-        "tag": "Best Latency-dns",
-        "address": "https://1.1.1.2/dns-query",
-        "strategy": "prefer_ipv4",
-        "detour": "Best Latency"
-      },
-      {
         "tag": "direct-dns",
-        "address": "udp://8.8.8.8",
-        "strategy": "prefer_ipv4",
+        "address": "8.8.8.8",
+        "strategy": "ipv4_only",
         "detour": "direct"
-      },
-      {
-        "tag": "block-dns",
-        "address": "rcode://success"
       }
     ],
     "rules": [
       {
-        "domain": [
-          "h2.88981401.xyz",
-          "all-v4.dgi000.store",
-          "all-v6.cybsecguru.com"
-        ],
+        "outbound": "any",
         "server": "direct-dns",
         "rewrite_ttl": 20
       },
@@ -49,50 +35,18 @@
         ],
         "server": "direct-dns",
         "rewrite_ttl": 20
-      },
-      {
-        "outbound": "Internet",
-        "server": "Internet-dns",
-        "rewrite_ttl": 20
-      },
-      {
-        "outbound": "Best Latency",
-        "server": "Best Latency-dns",
-        "rewrite_ttl": 20
-      },
-      {
-        "outbound": "direct",
-        "server": "direct-dns",
-        "rewrite_ttl": 20
-      },
-      {
-        "outbound": "any",
-        "server": "direct-dns",
-        "rewrite_ttl": 20
-      },
-      {
-        "inbound": "tun-in",
-        "query_type": [
-          "A",
-          "AAAA"
-        ],
-        "server": "Best Latency-dns",
-        "disable_cache": true,
-        "rewrite_ttl": 20
       }
     ],
-    "strategy": "prefer_ipv4",
+    "strategy": "ipv4_only",
     "independent_cache": true
   },
   "inbounds": [
     {
       "type": "tun",
       "tag": "tun-in",
+      "interface_name": "Azadi-VPN",
       "mtu": 9000,
-      "address": [
-        "172.18.0.1/30",
-        "fdfe:dcba:9876::1/126"
-      ],
+      "address": "172.18.0.1/30",
       "auto_route": true,
       "strict_route": true,
       "route_exclude_address": [
@@ -100,18 +54,7 @@
         "fc00::/7"
       ],
       "stack": "mixed",
-      "sniff": true,
-      "sniff_override_destination": true,
-      "domain_strategy": "prefer_ipv4"
-    },
-    {
-      "type": "mixed",
-      "tag": "mixed-in",
-      "listen": "0.0.0.0",
-      "listen_port": 4040,
-      "sniff": true,
-      "sniff_override_destination": true,
-      "domain_strategy": "prefer_ipv4"
+      "domain_strategy": "ipv4_only"
     }
   ],
   "outbounds": [
@@ -120,48 +63,53 @@
       "tag": "Internet",
       "outbounds": [
         "Best Latency",
-        "🇨🇭 Azadi",
-        "🇩🇪 IRCP IPv6Only\n@Ln2Ray",
-        "🇩🇪 JNIR IPv6Only\n@JavidnamanIran"
+        "🇨🇭 𝐘𝐀𝐏𝐂-1\n@azadi_az_inja_migzare",
+        "🇨🇭 𝐘𝐀𝐏𝐂-1-IPv6\n@azadi_az_inja_migzare",
+        "🇨🇭 𝐘𝐀𝐏𝐂-2\n@azadi_az_inja_migzare",
+        "🇳🇱 IRCP\n@Ln2Ray",
+        "🇩🇪 JNIR-IPv6\n@JavidnamanIran"
       ]
     },
     {
       "type": "urltest",
       "tag": "Best Latency",
       "outbounds": [
-        "🇨🇭 Azadi",
-        "🇩🇪 IRCP IPv6Only\n@Ln2Ray",
-        "🇩🇪 JNIR IPv6Only\n@JavidnamanIran"
+        "🇨🇭 𝐘𝐀𝐏𝐂-1\n@azadi_az_inja_migzare",
+        "🇨🇭 𝐘𝐀𝐏𝐂-1-IPv6\n@azadi_az_inja_migzare",
+        "🇨🇭 𝐘𝐀𝐏𝐂-2\n@azadi_az_inja_migzare",
+        "🇳🇱 IRCP\n@Ln2Ray",
+        "🇩🇪 JNIR-IPv6\n@JavidnamanIran"
       ],
-      "url": "http://www.gstatic.com",
+      "url": "http://1.1.1.1/",
       "interval": "3m0s",
       "tolerance": 1,
       "idle_timeout": "9m0s"
     },
     {
       "type": "hysteria2",
-      "tag": "🇨🇭 Azadi",
-      "domain_strategy": "prefer_ipv4",
-      "server": "all-v4.dgi000.store",
-      "server_port": 443,
+      "tag": "🇨🇭 𝐘𝐀𝐏𝐂-1\n@azadi_az_inja_migzare",
+      "domain_strategy": "ipv4_only",
+      "server": "YAPC-1.afshin.ir",
+      "server_port": 0,
+      "server_ports": "35000:45000",
+      "hop_interval": "30s",
       "obfs": {
         "type": "salamander",
-        "password": "@azadi_az_inja_migzare"
+        "password": "Yet-Another-Public-Config-1"
       },
-      "password": "@azadi_az_inja_migzare",
+      "password": "Yet-Another-Public-Config-1",
       "tls": {
         "enabled": true,
-        "server_name": "all-v4.dgi000.store",
+        "server_name": "YAPC-1.afshin.ir",
         "alpn": "h3",
         "min_version": "1.3",
         "max_version": "1.3",
         "ech": {
           "enabled": true,
-          "pq_signature_schemes_enabled": true,
           "config": [
             "-----BEGIN ECH CONFIGS-----",
-            "AEb+DQBCAAAgACAzj8BolIG68jc1kgCeQ2Fg2cDQcw5KvTycY6MwW6kMdAAIAAEA",
-            "AQABAAMAD0E0LmRnaTAwMC5zdG9yZQAA",
+            "AFf+DQBTAAAgACAFoxGSyE0q9rP5MpxnApUbq9Oc4a35tfrjQ9wXEKboKwAIAAEA",
+            "AQABAAMAIFstLXBxLXNpZ25hdHVyZS1zY2hlbWVzLWVuYWJsZWRdAAA=",
             "-----END ECH CONFIGS-----"
           ]
         }
@@ -169,23 +117,28 @@
     },
     {
       "type": "hysteria2",
-      "tag": "🇩🇪 IRCP IPv6Only\n@Ln2Ray",
-      "domain_strategy": "prefer_ipv6",
-      "server": "h2.88981401.xyz",
-      "server_port": 443,
-      "password": "yVdMahZlkkgk",
+      "tag": "🇨🇭 𝐘𝐀𝐏𝐂-1-IPv6\n@azadi_az_inja_migzare",
+      "domain_strategy": "ipv6_only",
+      "server": "YAPC-1.afshin.ir",
+      "server_port": 0,
+      "server_ports": "35000:45000",
+      "hop_interval": "30s",
+      "obfs": {
+        "type": "salamander",
+        "password": "Yet-Another-Public-Config-1"
+      },
+      "password": "Yet-Another-Public-Config-1",
       "tls": {
         "enabled": true,
-        "server_name": "hy2.55994421.xyz",
+        "server_name": "YAPC-1.afshin.ir",
         "alpn": "h3",
         "min_version": "1.3",
         "max_version": "1.3",
         "ech": {
           "enabled": true,
-          "pq_signature_schemes_enabled": true,
           "config": [
             "-----BEGIN ECH CONFIGS-----",
-            "AFf+DQBTAAAgACBgC+U935o5TbXkGxia/GgQYBb3+goW2Z0l/6se3ObxZwAIAAEA",
+            "AFf+DQBTAAAgACAFoxGSyE0q9rP5MpxnApUbq9Oc4a35tfrjQ9wXEKboKwAIAAEA",
             "AQABAAMAIFstLXBxLXNpZ25hdHVyZS1zY2hlbWVzLWVuYWJsZWRdAAA=",
             "-----END ECH CONFIGS-----"
           ]
@@ -194,8 +147,59 @@
     },
     {
       "type": "vless",
-      "tag": "🇩🇪 JNIR IPv6Only\n@JavidnamanIran",
-      "domain_strategy": "prefer_ipv6",
+      "tag": "🇨🇭 𝐘𝐀𝐏𝐂-2\n@azadi_az_inja_migzare",
+      "domain_strategy": "ipv4_only",
+      "server": "YAPC-1.afshin.ir",
+      "server_port": 443,
+      "uuid": "7c317161-5cf8-4cbc-811a-d1297c41bb23",
+      "flow": "xtls-rprx-vision",
+      "tls": {
+        "enabled": true,
+        "server_name": "YAPC-1.afshin.ir",
+        "alpn": "h2",
+        "min_version": "1.3",
+        "max_version": "1.3",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "randomized"
+        }
+      },
+      "packet_encoding": "xudp"
+    },
+    {
+      "type": "hysteria2",
+      "tag": "🇳🇱 IRCP\n@Ln2Ray",
+      "domain_strategy": "ipv4_only",
+      "server": "chopper.88981401.xyz",
+      "server_port": 0,
+      "server_ports": "35000:45000",
+      "hop_interval": "10s",
+      "obfs": {
+        "type": "salamander",
+        "password": "Telegram--\u003e@Ln2Ray"
+      },
+      "password": "Telegram--\u003e@Ln2Ray",
+      "tls": {
+        "enabled": true,
+        "server_name": "chopper.55994421.xyz",
+        "alpn": "h3",
+        "min_version": "1.3",
+        "max_version": "1.3",
+        "ech": {
+          "enabled": true,
+          "config": [
+            "-----BEGIN ECH CONFIGS-----",
+            "AEv+DQBHAAAgACCv/adP9Sbsji0Ksj8E4HLmKQyZGvxV6YsFXE1t1mtMLgAIAAEA",
+            "AQABAAMAFGNob3BwZXIuNTU5OTQ0MjEueHl6AAA=",
+            "-----END ECH CONFIGS-----"
+          ]
+        }
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "🇩🇪 JNIR-IPv6\n@JavidnamanIran",
+      "domain_strategy": "ipv6_only",
       "server": "all-v6.cybsecguru.com",
       "server_port": 44441,
       "uuid": "ec8a65ad-aafc-4095-9b8c-ea10890ca629",
@@ -219,26 +223,34 @@
     {
       "type": "direct",
       "tag": "direct"
-    },
-    {
-      "type": "block",
-      "tag": "block"
-    },
-    {
-      "type": "dns",
-      "tag": "dns-out"
     }
   ],
   "route": {
     "rules": [
       {
-        "port": 53,
-        "outbound": "dns-out"
+        "action": "sniff"
+      },
+      {
+        "type": "logical",
+        "mode": "or",
+        "rules": [
+          {
+            "inbound": "dns-in"
+          },
+          {
+            "port": 53
+          },
+          {
+            "protocol": "dns"
+          }
+        ],
+        "action": "hijack-dns"
       },
       {
         "network": "tcp",
         "port": 853,
-        "outbound": "block"
+        "action": "reject",
+        "method": "default"
       },
       {
         "network": "udp",
@@ -246,22 +258,8 @@
           443,
           853
         ],
-        "outbound": "block"
-      },
-      {
-        "source_ip_cidr": [
-          "224.0.0.0/3",
-          "ff00::/8"
-        ],
-        "ip_cidr": [
-          "224.0.0.0/3",
-          "ff00::/8"
-        ],
-        "outbound": "block"
-      },
-      {
-        "protocol": "stun",
-        "outbound": "block"
+        "action": "reject",
+        "method": "default"
       },
       {
         "ip_is_private": true,
@@ -273,6 +271,23 @@
           ".*\\.xn--mgba3a4f16a$"
         ],
         "outbound": "direct"
+      },
+      {
+        "protocol": "stun",
+        "action": "reject",
+        "method": "default"
+      },
+      {
+        "source_ip_cidr": [
+          "224.0.0.0/3",
+          "ff00::/8"
+        ],
+        "ip_cidr": [
+          "224.0.0.0/3",
+          "ff00::/8"
+        ],
+        "action": "reject",
+        "method": "default"
       }
     ],
     "auto_detect_interface": true,
@@ -283,6 +298,11 @@
       "enabled": true,
       "path": "cache.db",
       "cache_id": "saeed"
+    },
+    "clash_api": {
+      "external_controller": "127.0.0.1:9090",
+      "access_control_allow_origin": "https://yacd.metacubex.one",
+      "access_control_allow_private_network": true
     }
   }
 }
