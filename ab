@@ -119,8 +119,8 @@
         "2606:4700:110:8ed6:b89b:8900:b7b6:613f/128"
       ],
       "private_key": "AMRMvUYroN7fxgXo9oXeZHy8g+BBR6BFUpsK3jU/UVI=",
-      "server": "2606:4700:d0::8ba3:72e0:c213",
-      "server_port": 891,
+      "server": "[2606:4700:d0::a1e7:32f9:410e:1883]",
+      "server_port": 7152,
       "peer_public_key": "bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=",
       "reserved": [ 169, 224, 129 ],
       "mtu": 1330,
